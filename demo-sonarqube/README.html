@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Computer Assisted Audit Techniques - Ejemplos de uso</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="computer-assisted-audit-techniques---ejemplos-de-uso">Computer Assisted Audit Techniques - Ejemplos de uso</h1>
+<h2 id="demo-uso-de-la-herramienta-sonarqube">Demo: uso de la herramienta Sonarqube</h2>
+<p>Para este demo se va a usar Docker. Entonces conviene tenerlo instalado antes de comenzar se comparte el siguiente enlace a su tutorial oficial de instalación.</p>
+<ul>
+<li>Instalar docker. <a href="https://docs.docker.com/get-docker/">Tutorial</a></li>
+</ul>
+<p>El demo también podría ser ejecutado sin contar con Docker, aunque en ese caso se debería contar con la herramienta Sonarqube en otro medio de instalación.</p>
+<h2 id="obtener-la-imagen">Obtener la imagen</h2>
+<pre><code class="language-bash"><div>docker pull sonarqube
+</div></code></pre>
+<h2 id="generar-el-contenedor">Generar el contenedor</h2>
+<pre><code class="language-bash"><div>docker run --rm --name sonarqube -p 9000:9000 sonarqube
+</div></code></pre>
+<h2 id="consideraciones-previas">Consideraciones previas</h2>
+<p>Se va a analizar un proyecto de muestra con código Python / PHP. El mismo se encuentra en la carpeta <strong>codigo</strong>.</p>
+<h2 id="pasos-a-seguir">Pasos a seguir</h2>
+<ol>
+<li>Ingresar en el navegador a la <a href="http://localhost:9000/">aplicación</a></li>
+<li>Login con las credenciales por defecto <strong>admin : admin</strong></li>
+<li>Generar un nuevo proyecto:
+<ul>
+<li>Definir un nombre</li>
+<li>Generar un token</li>
+<li>Seleccionar lenguaje y sistema operativo (SO)</li>
+<li>Descomprimir la versión correspondiente a su SO del <strong>sonar-scanner</strong> que se encuentra comprimido en esta misma carpeta</li>
+</ul>
+</li>
+<li>Ejecutar sonar-scanner en la carpeta donde se encuentre el código fuente a analizar (ver cómo se alcanza al archivo ejecutable que se encuentra en /bin de la carpeta de instalación del scanner)</li>
+<li>Una vez que termine la ejecución, volver al navegador y ver los resultados del proyecto</li>
+<li>Generar el reporte del uso de la herramienta para el registro de las evidencias que se encuentren</li>
+</ol>
+<h2 id="apagado-del-contenedor">Apagado del contenedor</h2>
+<pre><code class="language-bash"><div>docker stop sonarqube
+</div></code></pre>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://hub.docker.com/_/sonarqube/">Fuente de la imagen</a><br>
+<a href="https://www.sonarqube.org/">Más información sobre la herramienta</a>
+<a href="https://github.com/genack/gPOS">Repositorio de código de ejemplo</a></p>
+
+    </body>
+    </html>
