@@ -28,7 +28,7 @@ Analizando por partes el comando se puede ir trabajando de la siguiente manera:
   * Puede usarse directo una URL: `nmap www.scanme.org`
 
 * Para identificar a los hosts que se encuentran online:
-  * Se puede usar el modificador _-PS_ que verifica a través del envío de un paquete TCP SYN al puerto 80. Comando: `nmap 192.168.01.1-20 -PS`
+  * Se puede usar el modificador _-PS_ que verifica a través del envío de un paquete TCP SYN al puerto 80. Comando: `nmap 192.168.1.1-20 -PS`
   * Se puede usar el modificador _-sL_ para solo listar aquellos hosts encendidos (puede dar resultados diferentes al anterior). Comando: `nmap 192.168.0.1-20 -sL`
   * En caso de que esté bloqueado poder realizar un ping a los hosts se puede usar la opción _-PN_. Comando: `nmap 192.168.0.1-20 -PN`
 

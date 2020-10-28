@@ -8,23 +8,25 @@ Para este demo se va a usar Docker. Entonces conviene tenerlo instalado antes de
 
 El demo también podría ser ejecutado sin contar con Docker, aunque en ese caso se debería contar con la herramienta Sonarqube en otro medio de instalación.
 
-## Obtener la imagen
+### Obtener la imagen
 
 ~~~ bash
 docker pull sonarqube
 ~~~
 
-## Generar el contenedor
+### Generar el contenedor
 
 ~~~ bash
 docker run --rm --name sonarqube -p 9000:9000 sonarqube
 ~~~
 
-## Consideraciones previas
+Considerar que la opción `--rm` hace que el contenedor sea eliminado una vez cerrado o detenido, con lo que se perderán los datos del análisis. En este caso se podría usar si esa opción para que los datos persistan en el contenedor.
+
+### Consideraciones previas
 
 Se va a analizar un proyecto de muestra con código Python / PHP. El mismo se encuentra en la carpeta **codigo**.
 
-## Pasos a seguir
+### Pasos a seguir
 
 1. Ingresar en el navegador a la [aplicación](http://localhost:9000/)
 2. Login con las credenciales por defecto **admin : admin**
@@ -32,12 +34,12 @@ Se va a analizar un proyecto de muestra con código Python / PHP. El mismo se en
    * Definir un nombre
    * Generar un token
    * Seleccionar lenguaje y sistema operativo (SO)
-   * Descomprimir la versión correspondiente a su SO del **sonar-scanner** que se encuentra comprimido en esta misma carpeta
+   * Descargar la versión correspondiente a su SO del **sonar-scanner**, el link se puede obtener desde la misma herramienta en la interfaz web
 4. Ejecutar sonar-scanner en la carpeta donde se encuentre el código fuente a analizar (ver cómo se alcanza al archivo ejecutable que se encuentra en /bin de la carpeta de instalación del scanner)
 5. Una vez que termine la ejecución, volver al navegador y ver los resultados del proyecto
 6. Generar el reporte del uso de la herramienta para el registro de las evidencias que se encuentren
 
-## Apagado del contenedor
+### Apagado del contenedor
 
 ~~~ bash
 docker stop sonarqube
