@@ -25,15 +25,15 @@ WORKDIR /src
 
 COPY requirements.txt .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install jupyterlab
+RUN pip3 install pandas
 ~~~
 
 Qué es eso?
 
 * `FROM python:3` sirve para indicar la imagen base sobre la que se va a trabajar.
 * `WORKDIR /src` indica que esa ubicación será en la que se van a ejecutar los siguientes comandos del archivo.
-* `COPY requirements.txt .` hace la copia del archivo definido de la ubicación actual a la imagen. En este caso va a ser en la ubicación definida en el paso previo.
-* `RUN pip3 install -r requirements.txt` es la orden para ejecutar la instalación de las dependencias del proyecto en la imagen.
+* `RUN pip3 install [paquetes]` es la orden para ejecutar la instalación de los paquetes a utilizar en el proyecto en la imagen.
 
 En este momento, después de generar el archivo, se podría generar una imagen con sus características, para eso se tiene que ejecutar el siguiente comando (**estando en la misma ubicación** del Dockerfile):
 
